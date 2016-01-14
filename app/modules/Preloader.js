@@ -23,19 +23,14 @@ var Preloader = function() {
 		return functionToCheck && getType.toString.call(functionToCheck) == '[object Function]';
 	}
 
-	// when images are loaded, do something
 	LoadImages([
-		'images/candh.jpg',
-		'http://placekitten.com/g/200/250'
-	], this.imagesAreLoaded() );
-
-};
-
-Preloader.prototype.imagesAreLoaded = function() {
-		
-		console.log("images are loaded");
-
-		this.animate.start();
+		'http://www.intrawallpaper.com/static/images/Hi-Tech-Wallpaper-1.png',
+		'http://www.intrawallpaper.com/static/images/Lenovo-wallpaper-6.jpg'
+	], function() {
+		TweenLite.to('#overlay', 0.5, {
+			autoAlpha: 0
+		});
+	});
 
 };
 

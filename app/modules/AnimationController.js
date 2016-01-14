@@ -11,42 +11,42 @@ var EasePack = require('EasePack');
 // animation controller object constructor
 var AnimationController = function() {
 
-  this.box = document.querySelector('.box');
+  // this.box = document.querySelector('.box');
   
-  this.init();
+  // this.init();
 
 };
 
 AnimationController.prototype.firstAnimation = function() {
 
-  var tl = new TimelineLite();
+  // var tl = new TimelineLite();
 
-  tl.to (this.box, 0.75, {autoAlpha: 1, left: 20, ease: Power2.easeOut});
-  tl.to (this.box, 0.75, {autoAlpha: 0.5, top: 20, ease: Power2.easeOut});
-  tl.to (this.box, 0.75, {autoAlpha: 1, left: 0, top: 0, ease: Power4.easeOut});
+  // tl.to (this.box, 0.75, {autoAlpha: 1, left: 20, ease: Power2.easeOut});
+  // tl.to (this.box, 0.75, {autoAlpha: 0.5, top: 20, ease: Power2.easeOut});
+  // tl.to (this.box, 0.75, {autoAlpha: 1, left: 0, top: 0, ease: Power4.easeOut});
 
-  return tl;
+  // return tl;
 
 };
 
 // initialize banner
 AnimationController.prototype.init = function() {
 
-  console.log('%c:: animation init ::', colors.red);
+  // console.log('%c:: animation init ::', colors.red);
 
-  this.tl = new TimelineLite({paused: true});
+  // this.tl = new TimelineLite({paused: true});
 
-  this.tl.add(this.firstAnimation());
+  // this.tl.add(this.firstAnimation());
 
-  return this.tl;
+  // return this.tl;
 
 };
 
 // start animation
 AnimationController.prototype.start = function() {
 
-  this.tl.play();
-  console.log('%c:: animation start ::', colors.green);
+  // this.tl.play();
+  // console.log('%c:: animation start ::', colors.green);
 
 };
 
