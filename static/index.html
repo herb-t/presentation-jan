@@ -1,0 +1,183 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>Sorting Algorithms</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png">
+
+    <link rel="stylesheet" href="css/index.css">
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        
+        <!-- slide -->
+        <section data-background-image="http://www.intrawallpaper.com/static/images/Hi-Tech-Wallpaper-1.png">
+          <h2>Javascript Algorithms</h2>
+          <h4>Sorting</h4>
+        </section>
+        
+        <!-- slide -->
+        <section data-background-image="http://www.intrawallpaper.com/static/images/Lenovo-wallpaper-6.jpg" class="align-left">
+          <h3 class="align-center">Javascript Sorting Algorithms</h3>
+          <p>Sorting algorithms are used widely to organize sets of information that have been stored in data structures.  There are many different sorting algorithms, each differ in their methods to sort the data as well as their efficiency and performance.  The type of data in your data structures will dictate the sorting algorithm you should use.  In some cases, writing your own is the best approach.</p>
+          <p>Lets not forget that the native method <strong class="colorWhite">Array.prototype.sort()</strong> will do the right thing and provide the fastest possible implementation. Let's take a look at some of the more popular and widely used sorting algorithms to see the difference in methodology and performance.  Bubble Sort, Merge Sort and Quick Sort.</p>
+        </section>
+
+        <!-- slide -->
+        <section data-background-image="http://www.intrawallpaper.com/static/images/Lenovo-wallpaper-6.jpg" class="align-left">
+          <h3 class="align-center">Bubble Sort</h3>
+          <p>The bubble sort algorithm simply goes down the array and compares the first item of the array with the second.  If the first item is bigger than the second item, the algorithm swaps them so the bigger one stays in the second position.  This keeps happening until the you reach the last item of the array.  So with the bubble sorting algorithm, we “bubble” up the biggest item of the array to the right most position of the array.</p>
+        </section>
+
+        <!-- slide -->
+        <section data-background-image="http://www.intrawallpaper.com/static/images/Lenovo-wallpaper-6.jpg">
+          <h3>Bubble Sort</h3>
+          <p class="align-left">Let’s take a look how merge sorting would look through this array and reposition the items.</p>
+          <img src="images/gif-bubble.gif" alt="Bubble Sort Gif" class="gif-eg">
+          <br>
+          <br>
+          <small>As you can see, this is probably the worst way to sort through our data but a good algorithm to start with.</small>
+        </section>
+
+        <!-- slide -->
+        <section data-background-image="http://www.intrawallpaper.com/static/images/Lenovo-wallpaper-6.jpg" class="align-left">
+          <h3 class="align-center">Bubble Sort</h3>
+          <p>This one is simple enough to list out the procedure.</p>
+          <p>Lets take an unsorted array:  <strong>[4,0,2,3,1]</strong></p>
+          <ul>
+            <li>[<strong>0</strong>,<strong>4</strong>,2,3,1]</li>
+            <li>[0,<strong>2</strong>,<strong>4</strong>,3,1]</li>
+            <li>[0,2,<strong>3</strong>,<strong>4</strong>,1]</li>
+            <li>[0,2,3,<strong>1</strong>,<strong>4</strong>]</li>
+            <li>[0,2,<strong>1</strong>,<strong>3</strong>,4]</li>
+            <li>[0,<strong>1</strong>,<strong>2</strong>,3,4]</li>
+          </ul>
+          <br>
+          <br>
+          <small>Let's see it in action: <a href="http://codepen.io/herbicus/pen/vLJpwz" target="_blank">http://codepen.io/herbicus/pen/vLJpwz</a></small>         
+        </section>
+
+        <!-- slide -->
+        <section data-background-image="http://www.intrawallpaper.com/static/images/Lenovo-wallpaper-6.jpg" class="align-left">
+          <h3 class="align-center">Merge Sort</h3>
+          <p>The merge sort is a divide and conquer algorithm. The idea behind it is to divide the original array into smaller arrays until each small array has only one position and then merge these smaller arrays into bigger ones until we have a single big array at the end that is sorted.  Merge sort will transform a bigger array into a smaller array until they have only one item in them.</p>
+        </section>
+
+        <!-- slide -->
+        <section data-background-image="http://www.intrawallpaper.com/static/images/Lenovo-wallpaper-6.jpg">
+          <h3>Merge Sort</h3>
+          <p class="align-left">Let’s take a look how merge sorting would look through this array and reposition the items.</p>
+          <img src="images/gif-merge.gif" alt="Merge Sort Gif" class="gif-eg">
+          <br>
+          <br>
+          <small>Slightly more complex than Bubble Sort but a lot more efficient.</small>
+        </section>
+
+        <!-- slide -->
+        <section  data-background-image="http://www.intrawallpaper.com/static/images/Lenovo-wallpaper-6.jpg" class="align-left">
+          <h3 class="align-center">Merge Sort</h3>
+
+          <p>We’ll need two functions to accomplish this.  One function will transform a bigger array into smaller arrays until they have only one item in them.  As the algorithm is recursive, we need a stop condition or a helper function.  This function receives two arrays and merges them into a bigger array. At the end, we return a merged array as the result.</p>
+          <br><br>
+          <small>Let's see it in action: <a href="http://codepen.io/herbicus/pen/WrEmbj" target="_blank">http://codepen.io/herbicus/pen/WrEmbj</a></small>         
+        </section>
+
+        <!-- slide -->
+        <section  data-background-image="http://www.intrawallpaper.com/static/images/Lenovo-wallpaper-6.jpg" class="align-left">
+          <h3 class="align-center">Quick Sort</h3>
+          <p>The quick sort is probably the most used sorting algorithm.  Like the merge sort, it also uses the divide and conquer approach, dividing the original array into smaller ones (but without splitting them as the merge sort does) to do the sorting. The quick sort algorithm is a little bit more complex than the other ones.</p>
+        </section>
+
+        <!-- slide -->
+        <section  data-background-image="http://www.intrawallpaper.com/static/images/Lenovo-wallpaper-6.jpg" class="align-left">
+          <h3 class="align-center">Quick Sort</h3>
+          <p>Lets break down the process into steps:</p>
+          <small>
+            <ol>
+              <br>
+              <li>First, we need to select an item from the array that is called as a pivot.  It can be random but it makes sense to go with the middle item or the last item of the array.</li>
+              <br>
+              <li>We will create two pointers.  The left one will point to the first item of the array and the right one will point to the last item of the array.  We will move the left pointer until we find an item that is bigger than the pivot and we will also move the right pointer until we find an item that is less than the pivot and we will swap them.  We repeat this process until the left pointer passes the right pointer.  This process helps to have values lower than the pivot before the pivot and values greater than the pivot after the pivot.  This is called partition operation.</li>
+              <br>
+              <li>Next the algorithm repeats the previous two steps for smaller arrays  (sub-arrays with smaller values, and then sub-arrays with greater values) until the array is completely sorted.</li>
+            </ol>
+          </small> 
+        </section>
+
+        <!-- slide -->
+        <section data-background-image="http://www.intrawallpaper.com/static/images/Lenovo-wallpaper-6.jpg">
+          <h3>Quick Sort</h3>
+          <p class="align-left">Let’s take a look how quick sorting would look through this <strong style="color: #FFF;">array</strong> and reposition the items.  In this demo, <strong style="color: #FFF;">3</strong> is our starting pivot point.</p>
+          <img src="images/gif-quick.gif" alt="Quick Sort Gif" class="gif-eg">
+          <br>
+          <br>
+          <small>As you can see, Quick Sorting is quite complex but a very efficient algorithm.</small>
+        </section>
+
+        <!-- slide -->
+        <section data-background-image="http://www.intrawallpaper.com/static/images/Lenovo-wallpaper-6.jpg" class="align-left">
+          <h3 class="align-center">Quick Sort</h3>
+
+          <p>There's lots going on lets talk about the code a bit first:</p>
+          <small>
+            <dl>
+              <br>
+              <dt>Call Quick sort</dt>
+              <dd>Pass the array and pass left and right to the quickSort function. For the first call, left would be the index of the first element which is 0 and right would be the index of the last element which would be length -1.</dd>
+              <br>
+              <dt>Select Pivot</dt>
+              <dd>We select pivot as the last index of the array.</dd>
+              <br>
+              <dt>Call Partition funtion</dt>
+              <dd>After calculating the pivot, we send the pivot to the partition function. In the partition function we pass array, pivot index, left and right.</dd>
+              <br>
+              <dt>partitionIndex variable</dt>
+              <dd>In the partition function, we keep move all the items smaller than the pivot value to the left and larger than pivot value to the right. We have to keep track of the position of the partition. so that we can split the array into two parts in the next step. This tracking of the index where we partition the array is done by using partitionIndex variable. the initial value is left.</dd>
+              <br>
+              <dt>Swap function</dt>
+              <dd>This is just a helper function to swap values of the array.</dd>
+            </dl>
+          </small>
+              
+        </section>
+
+        <!-- slide -->
+        <section class="align-left" data-background-image="http://www.intrawallpaper.com/static/images/Lenovo-wallpaper-6.jpg">
+          <h3 class="align-center">Quick Sort</h3>
+          <small>
+            <dl>
+              <dt>Move elements</dt>
+              <dd>we start a for loop from the left, and if the values is smaller than the pivot values we swap it with the position of the partitionIndex and increase the value of the partitionIndex. If the value is bigger, we don't do anything. We keep going until the element before the last element (remember last element is the pivot).</dd>
+              <br>
+              <dt>Place pivot</dt>
+              <dd> After moving all the smallest element to the left, we swap the last element (pivot value) with the partitionIndex. By doing this, the pivot sits where it suppose to sit when the full array is sorted. As all elements left to it smaller and all element right to it is bigger. End of the function partition, return the partitionIndex.</dd>
+              <br>
+              <dt>Repeat the process</dt>
+              <dd>Now come back to quickSort function. when you get the partitionIndex, apply quickSort for the left side of the array and right side of the array. keep doing it until left is smaller than right.</dd>
+            </dl>
+          </small>
+          <br><br>
+          <small>Let's see it in action: <a href="http://codepen.io/herbicus/pen/yeorGN" target="_blank">http://codepen.io/herbicus/pen/yeorGN</a></small>         
+        </section>
+
+        <!-- slide -->
+        <section class="align-left" data-background-image="http://www.intrawallpaper.com/static/images/Lenovo-wallpaper-6.jpg">
+          <h3 class="align-center">Lets Make It Fun</h3>
+          <p>So far, we've seen these algorithms in action using arrays of numbers.  Boring!  Lets take a look at something a little more practical.</p>
+
+          <a href="#">A link to a fun codepen here</a>
+        </section>
+      
+      </div>
+    </div>
+
+    <script src="js/vendor.js"></script>
+    <script src="js/main.build.js"></script>
+  </body>
+</html>
