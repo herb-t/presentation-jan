@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Sorting Algorithms</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hook.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style>
+			#logo {
+			    position: fixed;
+			    left: 20px;
+			    top: 20px;
+			    width: 100%;
+			    max-width: 50px;
+			    z-index: 9999;
+			}
+
+			strong {
+				color: #FF0050;
+			}
+
+			.presentation-list li{
+				font-size: 16px !important;	
+			}
+
+		</style>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<svg version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	       viewBox="0 0 88 131" style="enable-background:new 0 0 88 131;" xml:space="preserve">
+	      <style type="text/css">
+	        .st0{fill:#EE1D54;}
+	      </style>
+	      <g>
+	        <g>
+	          <path class="st0" d="M63.7,0.1L63.7,0.1C44.3,0.1,44.3,14.9,44.3,24v14.7c0,9.1,0,23.9,19.3,23.9h0C83,62.7,83,47.9,83,38.7V24
+	            C83,14.9,83,0.1,63.7,0.1z M68.2,42.2c0,2.2,0,5.7-4.6,5.7s-4.6-3.5-4.6-5.7V20.6c0-2.2,0-5.7,4.6-5.7s4.6,3.5,4.6,5.7V42.2z"/>
+	          <path class="st0" d="M24,1.2v21.6c0,0.7-0.5,1.2-1.2,1.2h-6.9c-0.7,0-1.2-0.5-1.2-1.2V1.2c0-0.7-0.5-1.2-1.2-1.2H1.2
+	            C0.5,0,0,0.5,0,1.2V24v14.8v22.7c0,0.7,0.5,1.2,1.2,1.2h12.3c0.7,0,1.2-0.5,1.2-1.2V39.9c0-0.7,0.5-1.2,1.2-1.2h6.9
+	            c0.7,0,1.2,0.5,1.2,1.2v21.6c0,0.7,0.5,1.2,1.2,1.2h12.3c0.7,0,1.2-0.5,1.2-1.2V38.8V24V1.2c0-0.7-0.5-1.2-1.2-1.2H25.2
+	            C24.5,0,24,0.5,24,1.2z"/>
+	        </g>
+	        <path class="st0" d="M19.3,68.5L19.3,68.5C0,68.5,0,83.2,0,92.4v14.7c0,9.1,0,23.9,19.3,23.9h0c19.3,0,19.3-14.7,19.3-23.9V92.4
+	          C38.7,83.2,38.7,68.5,19.3,68.5z M23.9,110.5c0,2.2,0,5.7-4.6,5.7h0c-4.6,0-4.6-3.5-4.6-5.7V88.9c0-2.2,0-5.7,4.6-5.7h0
+	          c4.6,0,4.6,3.5,4.6,5.7V110.5z"/>
+	        <path class="st0" d="M72.5,131H87c0.8,0,1.3-0.8,0.9-1.5l-15.8-29.3c-0.1-0.3-0.2-0.6,0-0.9l12.5-29.6c0.3-0.7-0.2-1.4-0.9-1.4
+	          H69.8c-0.4,0-0.8,0.2-0.9,0.6l-9.2,21.8C59.5,91.1,59,91,59,90.6V69.4c0-0.6-0.5-1-1-1H45.3c-0.6,0-1,0.5-1,1V130c0,0.6,0.5,1,1,1
+	          H58c0.6,0,1-0.5,1-1v-21.6c0-0.4,0.5-0.5,0.6-0.2l12,22.3C71.8,130.8,72.1,131,72.5,131z"/>
+	      </g>
+	    </svg>
+
+
+	    <div class="reveal">
+	      <div class="slides">
+	        
+	        <!-- slide -->
+	        <section>
+	          <h1>Javascript Algorithms</h1>
+	          <h2>Sorting</h2>
+	        </section>
+	        
+	        <!-- slide -->
+	        <section>
+	          <h2>Javascript Sorting Algorithms</h2>
+	          <p>Sorting algorithms are used widely to organize sets of information that have been stored in data structures.  There are many different sorting algorithms, each differ in their methods to sort the data as well as their efficiency and performance.  The type of data in your data structures will dictate the sorting algorithm you should use.  In some cases, writing your own is the best approach.</p>
+	          <p>Lets not forget that the native method <strong style="color: #FF0050;">Array.prototype.sort()</strong> will do the right thing and provide the fastest possible implementation. Let's take a look at some of the more popular and widely used sorting algorithms to see the difference in methodology and performance.  Bubble Sort, Merge Sort and Quick Sort.</p>
+	        </section>
+
+			<section data-transition="concave">
+				<section  data-transition="fade">
+					 <h2>Bubble Sort</h2>
+					 <p class="align-center">Let’s take a look how bubble sorting would look through this array and reposition the items.</p>
+					 <img src="images/gif-bubble.gif" alt="Bubble Sort Gif" class="gif-eg">
+					 <br>
+					 <br>
+					 <span>Let's see it in action: <a href="http://codepen.io/herbicus/pen/vLJpwz" target="_blank">http://codepen.io/herbicus/pen/vLJpwz</a></span>
+				</section>
+
+				<section  data-transition="fade">
+					<h2>Bubble Sort</h2>
+					
+					<p>This one is simple enough to list out the procedure.</p>
+					<p>Lets take an unsorted array:  <strong>[4,0,2,3,1]</strong></p>
+					<ul>
+					  <li>[<strong>0</strong>,<strong>4</strong>,2,3,1]</li>
+					  <li>[0,<strong>2</strong>,<strong>4</strong>,3,1]</li>
+					  <li>[0,2,<strong>3</strong>,<strong>4</strong>,1]</li>
+					  <li>[0,2,3,<strong>1</strong>,<strong>4</strong>]</li>
+					  <li>[0,2,<strong>1</strong>,<strong>3</strong>,4]</li>
+					  <li>[0,<strong>1</strong>,<strong>2</strong>,3,4]</li>
+					</ul>
+
+				</section>
+			</section>
+
+	        <!-- slide -->
+	        <section>
+
+	        	<aside class="notes">
+	        		<ul class="presentation-list">
+	        			<li>The merge sort is a divide and conquer algorithm.</li>
+	        			<li>Divide the original array into smaller arrays until each small array has only one position.</li>
+	        			<li>Then merge these smaller arrays into bigger ones until we have a single big array at the end.</li>
+	        			<li>Transform a bigger array into a smaller array until they have only one item in them.</li>
+	        		</ul>
+
+	        	</aside>
+	          
+			  <section>
+
+			  	<h2>Merge Sort</h2>
+
+			  	<p class="align-center">Let’s take a look how merge sorting would look through this array and reposition the items.</p>
+	          	<img src="images/gif-merge.gif" alt="Merge Sort Gif" class="gif-eg">
+
+			  </section>
+
+			  <section>
+			  	  <h2>Merge Sort</h2>
+			  		<p>We’ll need two functions to accomplish this.  One function will transform a bigger array into smaller arrays until they have only one item in them.  As the algorithm is recursive, we need a stop condition or a helper function.  This function receives two arrays and merges them into a bigger array. At the end, we return a merged array as the result.</p>
+			  		<span class="align-center">Let's see it in action: <a href="http://codepen.io/herbicus/pen/WrEmbj" target="_blank">http://codepen.io/herbicus/pen/WrEmbj</a></span>
+			  </section>
+
+	        </section>
+
+	        <section>
+	        	<section>
+	        		<h2>Quick Sort</h2>
+	        		<p>Let’s take a look how quick sorting would look through this <strong style="color: #FF0050;">array</strong> and reposition the items.  In this demo, <strong style="color: #FF0050;">3</strong> is our starting pivot point.</p>
+	        		<img src="images/gif-quick.gif" alt="Quick Sort Gif" class="gif-eg">
+	        	</section>
+
+	        	<section>
+	        		<h2>Quick Sort</h2>
+
+	        		<p>This one is wild.  Lets look at the code then talk through it.</p>
+	        	
+	        		<span>Let's see it in action: <a href="http://codepen.io/herbicus/pen/yeorGN" target="_blank">http://codepen.io/herbicus/pen/yeorGN</a></span>
+	        	</section>
+
+	        	<section>
+	        		<h2>Quick Sort</h2>
+					<p>Lets break down the process into steps:</p>
+
+					<ol class="presentation-list">
+						<br>
+						<li>First, we need to select an item from the array that is called as a pivot.  It can be random but it makes sense to go with the middle item or the last item of the array.</li>
+						<br>
+						<li>We will create two pointers.  The left one will point to the first item of the array and the right one will point to the last item of the array.  We will move the left pointer until we find an item that is bigger than the pivot and we will also move the right pointer until we find an item that is less than the pivot and we will swap them.  We repeat this process until the left pointer passes the right pointer.  This process helps to have values lower than the pivot before the pivot and values greater than the pivot after the pivot.  This is called partition operation.</li>
+						<br>
+						<li>Next the algorithm repeats the previous two steps for smaller arrays  (sub-arrays with smaller values, and then sub-arrays with greater values) until the array is completely sorted.</li>
+					</ol>
+	        	</section>
+
+	        	<!-- <section>
+	        		
+	        	</section> -->
+	        </section>
+
+	        <!-- slide -->
+	        <section>
+	          <section>
+	          	<h2>Let's' Talk Performance</h2>
+	          	<p>Why does this matter?  So far, we've only been sorting 10 numbers. Thats easy.  If you have 10's or 100's of thousands of items, performance matters.  Think Netflix or better yet, Amazon!  Lets take a look at the difference in performance between the algorithms we've learned about.</p>
+
+	          	<a href="http://jsperf.com/sorting-algorithms-tests" target="_blank">Let's check it out!</a>
+	          </section>
+
+	          <section>
+	          	<h2>Let's' Talk Performance</h2>
+	          	<p>The performance varies a good bit as you can see.  They all achieve the same results, one is clearly better than the other.</p>
+
+	          	<a href="http://codepen.io/collection/nGpgyg/">Take a look at the code a little more tooth and nail!</a>
+
+	          </section>
+	        </section>
+	      
+	      </div>
+	    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
