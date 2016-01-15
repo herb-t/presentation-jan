@@ -62,7 +62,8 @@
     "TweenLite": "global:TweenLite",
     "TimelineLite": "global:TimelineLite",
     "EasePack": "global:EasePack",
-    "CSSPlugin": "global:CSSPlugin"
+    "CSSPlugin": "global:CSSPlugin",
+    "Reveal": "global:Reveal"
   },
   "browserify": {
     "transform": [

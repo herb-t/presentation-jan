@@ -7,16 +7,28 @@
 $white = #FFF
 $black = #000
 $grey = #9e9e9e
+$siteRed = #FF0050
 
 body, html
     width 100%
     height 100%
     font-family sans-serif
     
+// body
+//     position relative
+    
+#logo
+    position fixed
+    left 200px
+    top 20px
+    width 100%
+    max-width 50px
+    z-index 9999 
+    
 ul
     font-weight 100 
     strong
-        color #FFF
+        color #FF0050
     
 .box
     position absolute
@@ -31,11 +43,19 @@ ul
     
 dl
     dt
-        color #FFF
+        color #FF0050
         text-decoration underline
         letter-spacing 2px
         
 #overlay
     coverer()
-    background #000 
-    z-index 9999
+    background #fff 
+    z-index 9000
+    
+h1
+    color $siteRed
+    line-height 92px !important
+    
+p
+    text-align left
+    line-height 32px !important 

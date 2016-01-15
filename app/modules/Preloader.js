@@ -30,6 +30,12 @@ var Preloader = function() {
 		TweenLite.to('#overlay', 0.5, {
 			autoAlpha: 0
 		});
+
+		TweenLite.to('#logo', 0.5, {
+			delay: 0.15,
+			left: 20,
+			ease: Power1.easeOut
+		});
 	});
 
 };
