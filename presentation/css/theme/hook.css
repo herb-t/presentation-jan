@@ -284,3 +284,57 @@ body {
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+/* custom css */
+
+#logo {
+    position: fixed;
+    left: 150px;
+    top: 20px;
+    width: 100%;
+    max-width: 50px;
+    z-index: 9999;
+    visibility: hidden;
+}
+
+strong {
+  color: #FF0050;
+}
+
+.num-list-img {
+  padding: 10px !important;
+}
+
+.num-single-digit {
+  margin-top: 50px !important;
+  width: 50px !important;
+  position: relative !important;
+}
+
+.presentation-list li{
+  font-size: 16px !important; 
+}
+
+.intro-slide h1,
+.intro-slide h2,
+.intro-slide img {
+  position: relative;
+  top: 20px;
+  visibility: hidden;
+  
+}
+
+.intro-slide img {
+  -webkit-transform: scale(0.75);
+     -moz-transform: scale(0.75);
+      -ms-transform: scale(0.75);
+       -o-transform: scale(0.75);
+          transform: scale(0.75);
+}
+
+button {
+  margin: 0 auto;
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
+  cursor: pointer;
+}
