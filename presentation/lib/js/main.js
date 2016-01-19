@@ -86,3 +86,24 @@ $('#bSortStageTwo').on('click', function(){
 
 	$('.bubble-sort-frame-two').toggleClass('played');
 })
+
+// eg bubble
+var egBubbleArr = []; 
+egBubbleArr[0] = "images/4.png";
+egBubbleArr[1] = "images/0.png";
+egBubbleArr[2] = "images/2.png";
+egBubbleArr[3] = "images/1.png";
+egBubbleArr[4] = "images/3.png";
+
+// function displayAllImages() {
+// 	 for (i=0;i<egBubbleArr.length;i++) {
+// 	    document.write("<li><img src='" + egBubbleArr[i] + "' width='160' height='120'/><span>" + egBubbleArr[i] + "</span></li>");
+// 	    console.log(egBubbleArr);
+// 	}
+// }
+// for (i=0;i<egBubbleArr.length;i++) {
+//     document.write("<li><img src='" + egBubbleArr[i] + "' width='160' height='120'/><span>" + egBubbleArr[i] + "</span></li>");
+// }
+
+//document.querySelector('#egBubble').innerHTML = egBubbleArr;
+// document.querySelector('#egBubble').write("<li><img src='" + egBubbleArr[i] + "' width='160' height='120'/><span>" + egBubbleArr[i] + "</span></li>");

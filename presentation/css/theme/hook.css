@@ -338,3 +338,19 @@ button {
           border-radius: 5px;
   cursor: pointer;
 }
+
+#egBubble li,
+#bubbleDump li,
+#egMerge li,
+#egSort li {
+  list-style: none;
+  display: inline-block;
+  padding: 10px;
+  max-width: 125px;
+}
+
+#bubbleDump li {
+  position: relative;
+  visibility: hidden;
+  top: 30px;
+}
