@@ -339,18 +339,64 @@ button {
   cursor: pointer;
 }
 
+#egBubble {
+  position: relative;
+}
+
 #egBubble li,
 #bubbleDump li,
 #egMerge li,
-#egSort li {
+#mergeDump li,
+#egSort li,
+#sortDump li,
+#leftDump li,
+#rightDump li {
   list-style: none;
   display: inline-block;
   padding: 10px;
-  max-width: 125px;
+  max-width: 100px;
 }
 
-#bubbleDump li {
+#bubbleDump li,
+#mergeDump li,
+#sortDump li {
   position: relative;
+  /*visibility: hidden;
+  top: 30px;*/
+}
+
+#sortDump li {
+  visibility: hidden;
+  top: 30px;
+}
+
+#egMerge li,
+#egSort li,
+#mergeDump li,
+#sortDump li,
+#leftDump li,
+#rightDump li {
+  max-width: 50px;
+  position: relative;
+}
+
+.border-highlite {
+  border-color: red;
+}
+
+#indiviualArrays ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 10px;
+  max-width: 50px;
+  position: relative;
+  visibility: hidden;
+  top: 20px;
+}
+
+#mergeDump li,
+#leftDump li,
+#rightDump li {
   visibility: hidden;
   top: 30px;
 }

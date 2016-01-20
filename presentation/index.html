@@ -79,7 +79,7 @@
 	        <section>
 	          <h2>Javascript Sorting Algorithms</h2>
 	          <p>Sorting algorithms are used widely to organize sets of information that have been stored in data structures.  There are many different sorting algorithms, each differ in their methods to sort the data as well as their efficiency and performance.  The type of data in your data structures will dictate the sorting algorithm you should use.  In some cases, writing your own is the best approach.</p>
-	          <p>Lets not forget that the native method <strong style="color: #FF0050;">Array.prototype.sort()</strong> will do the right thing and provide the fastest possible implementation. Let's take a look at some of the more popular and widely used sorting algorithms to see the difference in methodology and performance.  Bubble Sort, Merge Sort and Quick Sort.</p>
+	          <p>Lets not forget that the native method <strong style="color: #FF0050;">Array.prototype.sort()</strong> will provide the fastest possible implementation. Let's take a look at some of the more popular and widely used sorting algorithms to see the difference in methodology and performance.  Bubble Sort, Merge Sort and the native sort() method.</p>
 	        </section>
 
 	        <section>
@@ -101,9 +101,20 @@
 				</section>
 
 				<section>
+					<aside class="notes">
+						<small>
+							<ul>
+								<li>outer loop - iterates the array from its first position to the last one, controlling how many passes are done in the array</li>
+								<li>inner loop - iterates the array starting from its first position to the second to last item that will actually do the comparison between the current item and the next one</li>
+								<li>if the items are out of order (the current one is bigger than the next one), then we swap them </li>
+								<li>the value of position j-1 will be transferred to position j and vice versa</li>
+							</ul>
+						</small>
+					</aside>
 					<h2>Bubble Sort</h2>
 					<pre>
 						<code class="hljs" data-trim contenteditable>
+
 function bubbleSort(arr){
    var len = arr.length;
    for (var i = len-1; i >=0; i--) {
@@ -122,120 +133,13 @@ function bubbleSort(arr){
 					</pre>
 				</section>
 
-				<section class="bubble-sort-frame-two">
-					<h2>Bubble Sort</h2>
-					<small>Let's start from the beginning:</small>
-					<br>
-					<button id="bSortStageOne">Sort</button>
-					<br>
-					<img src="images/4.png" alt="four" class="num-single-digit" id="bSortOne">
-					<img src="images/3.png" alt="three" class="num-single-digit" id="bSortTwo">
-					<img src="images/0.png" alt="three" class="num-single-digit" id="bSortThree">
-					<img src="images/1.png" alt="three" class="num-single-digit" id="bSortFour">
-					<img src="images/2.png" alt="three" class="num-single-digit" id="bSortFive">
-
-				</section>
-
-				<section class="bubble-sort-frame-one">
-					<h2>Bubble Sort</h2>
-					<small>Lets repeat the process:</small>
-					<br>
-					<button id="bSortStageTwo">Sort</button>
-					<br>
-					
-					<img src="images/3.png" alt="three" class="num-single-digit" id="bSortOneS2">
-					<img src="images/0.png" alt="zero" class="num-single-digit" id="bSortTwoS2">
-					<img src="images/1.png" alt="one" class="num-single-digit" id="bSortThreeS2">
-					<img src="images/2.png" alt="two" class="num-single-digit" id="bSortFourS2">
-					<img src="images/4.png" alt="four" class="num-single-digit" id="bSortFiveS2">
-
-				</section>
-
-				<section>
-					<h2>Bubble Sort</h2>
-					<p>This one is simple enough to list out the procedure.</p>
-				
-					<small>
-						<p>Lets take an unsorted array:  <strong>[4,0,2,3,1]</strong></p>
-						<ul>
-						  <li>[<strong>0</strong>,<strong>4</strong>,2,3,1]</li>
-						  <li>[0,<strong>2</strong>,<strong>4</strong>,3,1]</li>
-						  <li>[0,2,<strong>3</strong>,<strong>4</strong>,1]</li>
-						  <li>[0,2,3,<strong>1</strong>,<strong>4</strong>]</li>
-						  <li>[0,2,<strong>1</strong>,<strong>3</strong>,4]</li>
-						  <li>[0,<strong>1</strong>,<strong>2</strong>,3,4]</li>
-						</ul>
-					</small>
-					<br>
-					<br>
-					<span>Let's take a look under the hood: <a href="http://codepen.io/herbicus/pen/vLJpwz" target="_blank">http://codepen.io/herbicus/pen/vLJpwz</a></span>	
-
-				</section>
-
 				<section class="bubble-sort-real-deal">
 					<h2>Bubble Sort</h2>
+
 					<ul id="egBubble">
 						<br>
-						<button id="sortReal">Try It</button>
+						<button id="sortReal">Sort</button>
 						<br>
-						<script>
-							
-							var egBubbleArr = ["images/1.png", "images/3.png", "images/2.png", "images/4.png", "images/0.png"]; 
-
-							function shuffle(array) {
-							  var currentIndex = array.length, temporaryValue, randomIndex;
-
-							  while (0 !== currentIndex) {
-
-							    randomIndex = Math.floor(Math.random() * currentIndex);
-							    currentIndex -= 1;
-
-							    temporaryValue = array[currentIndex];
-							    array[currentIndex] = array[randomIndex];
-							    array[randomIndex] = temporaryValue;
-							  }
-
-							  return array;
-							}
-
-							shuffle(egBubbleArr);
-
-							for (i=0;i<egBubbleArr.length;i++) {
-							    document.write("<li><img src='" + egBubbleArr[i] + "'/></li>");
-							}
-
-							function bubbleSort(arr){
-							   var len = arr.length; 
-							   for (var i = len-1; i >=0; i--) {
-							     for(var j = 1; j<=i; j++) { 
-							       if(arr[j-1]>arr[j]) {
-							           var temp = arr[j-1];
-							           arr[j-1] = arr[j];
-							           arr[j] = temp;
-							           console.log(arr[i]);
-							           // TweenMax.to(arr[i], 0.5, {top: 100, ease:Power1.easeOut});
-							           // TweenMax.to(i, 0.5, {left: 65, ease:Power1.easeOut});
-							           // TweenMax.to(j, 0.5, {left: -60, ease:Power1.easeOut});
-							           // TweenMax.to(i, 0.5, {top: 0, ease:Power1.easeOut});
-							           // TweenMax.to(temp, 0.5, {top: 100, ease:Power1.easeOut});
-							        }
-							     }
-							   }
-							   return arr;
-							}
-
-							$('#sortReal').on('click', function() {
-								console.log(egBubbleArr);
-								bubbleSort(egBubbleArr);
-
-								for (var i=0;i<egBubbleArr.length;i++) {
-									$("#bubbleDump").append("<li><img src='" + egBubbleArr[i] + "'/></li>");
-									TweenMax.staggerTo('#bubbleDump li', 0.5, {autoAlpha: 1, top: 0, ease: Back.easeOut}, 0.05);
-								}
-								
-							    
-							});
-						</script>
 					</ul>
 					<ul id="bubbleDump"></ul>
 
@@ -245,26 +149,40 @@ function bubbleSort(arr){
 	        <!-- slide -->
 	        <section>
 
-	        	<aside class="notes">
-	        		<ul class="presentation-list">
-	        			<li>The merge sort is a divide and conquer algorithm.</li>
-	        			<li>Divide the original array into smaller arrays until each small array has only one position.</li>
-	        			<li>Then merge these smaller arrays into bigger ones until we have a single big array at the end.</li>
-	        			<li>Transform a bigger array into a smaller array until they have only one item in them.</li>
-	        		</ul>
-
-	        	</aside>
+	        	
 	          
 			  <section>
+
+			  	<aside class="notes">
+			  		<small>
+			  			<ul class="presentation-list">
+			  				<li>The merge sort is a divide and conquer algorithm.</li>
+			  				<li>Divide the original array into smaller arrays until each small array has only one position.</li>
+			  				<li>Then merge these smaller arrays into bigger ones until we have a single big array at the end.</li>
+			  				<li>Transform a bigger array into a smaller array until they have only one item in them.</li>
+			  			</ul>
+			  		</small>
+
+			  	</aside>
 
 			  	<h2>Merge Sort</h2>
 
 			  	<p class="align-center">Let’s take a look how merge sorting would look through this array and reposition the items.</p>
-	          	<img src="images/gif-merge.gif" alt="Merge Sort Gif" class="gif-eg">
-
+	          	<!-- <img src="images/gif-merge.gif" alt="Merge Sort Gif" class="gif-eg"> -->
+	          	<img src="images/eg-merge.png" alt="merge example" style="border: none;">
 			  </section>
 
 		  	<section>
+				<aside class="notes">
+					<small>
+						<ul class="presentation-list">
+							<li>The next steps will be to call the merge function , which will be responsible for merging and sorting the smaller arrays into bigger ones until we have the original array sorted and back together</li>
+							<li>To keep breaking the original array into smaller pieces, we will recursively call mergeSort again, passing the left smaller array as a parameter and another call for the right array</li>
+						</ul>
+					</small>
+
+				</aside>
+
 				<h2>Merge Sort</h2>
 				<h4>mergeSort(arr)</h4>
 				<pre>
@@ -288,6 +206,19 @@ function mergeSort(arr) {
 			</section>
 
 			<section>
+				<aside class="notes">
+					<small>
+						<ul class="presentation-list">
+							<li>The merge function receives two arrays and merges them into a bigger array. During the merge is when the sorting happens</li>
+							<li>declare a new array that is going to be created for the merge and also declare two variables that are going to be used to iterate the two arrays (the left and right arrays).</li>
+							<li>If positive, we add the item from the left array to the merged result array and also increment the variable that is used to iterate the array</li>
+							<li>otherwise, we add the item from the right array and increment the variable that is used to iterate the array</li>
+							<li>Each time a value from one array is added, its corresponding index variable is incremented. As soon as one of the arrays has been exhausted, then the remaining values are added to the end of the result array using concat() which joins two or more arrays</li>
+						</ul>
+					</small>
+
+				</aside>
+
 				<h2>Merge Sort</h2>
 				<h4>merge(left, right)</h4>
 				<pre>
@@ -320,26 +251,20 @@ function merge(left, right) {
 			</section>
 
 			  <section>
+
 			  	<ul id="egMerge">
 			  		<h2>Merge Sort</h2>
 			  		<br>
-					<button id="mergeReal">Try It</button>
+					<button id="mergeReal">Sort</button>
 					<br>
-					<script>
-						
-						var egMergeArr = ["images/1.png", "images/3.png", "images/2.png", "images/4.png", "images/0.png"];
-
-						shuffle(egMergeArr);
-
-						for (i=0;i<egMergeArr.length;i++) {
-						    document.write("<li><img src='" + egMergeArr[i] + "'/></li>");
-						}
-
-						function mergeSort(arr){
-
-						}
-					</script>
 				</ul>
+				<br>
+				<div id="indiviualArrays"></div>
+				<br>
+				<ul id="leftDump" style="float: left;"></ul>
+				<ul id="rightDump" style="float: right;"></ul>
+				<br>
+				<ul id="mergeDump" style="position: relative; top: 100px;"></ul>
 			  </section>
 
 			  <section>
@@ -352,132 +277,39 @@ function merge(left, right) {
 
 	        <section>
 	        	<section>
-	        		<h2>Quick Sort</h2>
-	        		<p>Let’s take a look how quick sorting would look through this <strong style="color: #FF0050;">array</strong> and reposition the items.  In this demo, <strong style="color: #FF0050;">3</strong> is our starting pivot point.</p>
-	        		<img src="images/gif-quick.gif" alt="Quick Sort Gif" class="gif-eg">
+	        		<h2>Native Sort Method</h2>
+	        		<p>Let’s take a look how the native sort() method would look through this <strong style="color: #FF0050;">array</strong> and reposition the items.
+	        		<br>
+	        		<!-- <img src="images/gif-quick.gif" alt="Quick Sort Gif" class="gif-eg"> -->
+	        		<img src="images/eg-merge.png" alt="quick sort array example" style="border: none;">
 	        	</section>
 
 	        	<section>
-	        		<h2>Quick Sort</h2>
-	        		<h4>quickSort(arr, left, right)</h4>
+	        		<h2>Native Sort Method</h2>
+	        		<p>The default sort order is according to string Unicode code. Simply just call sort()</p>
 	        		<pre>
 	        			<code class="hljs" data-trim contenteditable>
+var myArray = ['ford', 'chevy', 'bmw'];
+myArray.sort();
 
-function quickSort(arr, left, right) {
-   var len = arr.length,
-   pivot,
-   partitionIndex;
-
-  // set the base case here - when left == right
-  if (left < right) {
-    pivot = right; 
-    partitionIndex = partition(arr, pivot, left, right);
-    
-   quickSort(arr, left, partitionIndex - 1);
-   quickSort(arr, partitionIndex + 1, right);
-  }
-  return arr;
-}
+// ['bmw', 'chevy', 'ford']
 
 	        			</code>
 	        		</pre>
-	        		
 	        	</section>
 
-	        	<section>
-	        		<h2>Quick Sort</h2>
-	        		<h4>partition(arr, pivot, left, right)</h4>
-	        		<pre>
-	        			<code class="hljs" data-trim contenteditable>
-
-function partition(arr, pivot, left, right){
-   var pivotValue = arr[pivot],
-       partitionIndex = left;
-
-   for(var i = left; i < right; i++){
-    if(arr[i] < pivotValue){
-      swap(arr, i, partitionIndex);
-      partitionIndex++;
-    }
-  }
-  // put the pivot in the correct place
-  swap(arr, right, partitionIndex);
-  return partitionIndex;
-}
-
-	        			</code>
-	        		</pre>
-	        		
-	        	</section>
-
-	        	<section>
-	        		<h2>Quick Sort</h2>
-	        		<h4>swap(arr, i, j)</h4>
-	        		<pre>
-	        			<code class="hljs" data-trim contenteditable>
-
-function swap(arr, i, j){
-   var temp = arr[i];
-   arr[i] = arr[j];
-   arr[j] = temp;
-}
-
-// usage
-quickSort(myArray,0,5);
-
-	        			</code>
-	        		</pre>
-	        		
-	        	</section>
+	        	
 
 	        	  <section>
 	        	  	<ul id="egSort">
-	        	  		<h2>Quick Sort</h2>
+	        	  		<h2>Native Sort Method</h2>
 	        	  		<br>
-	        			<button id="sortReal">Try It</button>
+	        			<button id="quickReal">Sort</button>
 	        			<br>
-	        			<script>
-	        				
-	        				var egQuickArr = ["images/1.png", "images/3.png", "images/2.png", "images/4.png", "images/0.png"];
-
-	        				shuffle(egQuickArr);
-
-	        				for (i=0;i<egQuickArr.length;i++) {
-	        				    document.write("<li><img src='" + egQuickArr[i] + "'/></li>");
-	        				}
-
-	        				function quickSort(arr){
-
-	        				}
-	        			</script>
 	        		</ul>
+	        		<ul id="sortDump"></ul>
 	        	  </section>
 
-	        	<section>
-	        		<h2>Quick Sort</h2>
-
-	        		<p>This one is wild.  Lets look at the code then talk through it.</p>
-	        	
-	        		<span>Let's see whats going on under the hood: <a href="http://codepen.io/herbicus/pen/yeorGN" target="_blank">http://codepen.io/herbicus/pen/yeorGN</a></span>
-	        	</section>
-
-	        	<section>
-	        		<h2>Quick Sort</h2>
-					<p>Lets break down the process into steps:</p>
-
-					<ol class="presentation-list">
-						<br>
-						<li>First, we need to select an item from the array that is called as a pivot.  It can be random but it makes sense to go with the middle item or the last item of the array.</li>
-						<br>
-						<li>We will create two pointers.  The left one will point to the first item of the array and the right one will point to the last item of the array.  We will move the left pointer until we find an item that is bigger than the pivot and we will also move the right pointer until we find an item that is less than the pivot and we will swap them.  We repeat this process until the left pointer passes the right pointer.  This process helps to have values lower than the pivot before the pivot and values greater than the pivot after the pivot.  This is called partition operation.</li>
-						<br>
-						<li>Next the algorithm repeats the previous two steps for smaller arrays  (sub-arrays with smaller values, and then sub-arrays with greater values) until the array is completely sorted.</li>
-					</ol>
-	        	</section>
-
-	        	<!-- <section>
-	        		
-	        	</section> -->
 	        </section>
 
 	        <!-- slide -->
@@ -507,7 +339,7 @@ quickSort(myArray,0,5);
 	        </section>
 
 	        <section class="intro-slide">
-	          <h2>Javascript Algorithms</h2>
+	          <h2>Javascript Sorting Algorithms</h2>
 	          <h3>That is all</h3>
 	          <h4>Thank you!</h4>
 	          <img src="images/ty.gif" alt="Thank You Kitties" style="background-color: white;">
@@ -520,7 +352,11 @@ quickSort(myArray,0,5);
     <script src="lib/js/TweenMax.js"></script>
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.js"></script>
-    <script src="lib/js/main.js"></script>  
+    <script src="lib/js/utilities.js"></script>
+    <script src="lib/js/bubble.js"></script>
+    <script src="lib/js/merge.js"></script>
+    <script src="lib/js/main.js"></script> 
+
 
     <script>
 
