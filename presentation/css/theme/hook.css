@@ -337,6 +337,22 @@ button {
   -webkit-border-radius: 5px;
           border-radius: 5px;
   cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+}
+
+#egBubble,
+#bubbleDump,
+#egMerge,
+#mergeDump,
+#egSort,
+#sortDump,
+#leftDump,
+#rightDump {
+  margin: 0;
+  padding: 0;
 }
 
 #egBubble {
@@ -355,6 +371,11 @@ button {
   display: inline-block;
   padding: 10px;
   max-width: 100px;
+}
+
+#egBubble li,
+#egMerge li {
+  padding: 0;
 }
 
 #bubbleDump li,
@@ -376,7 +397,7 @@ button {
 #sortDump li,
 #leftDump li,
 #rightDump li {
-  max-width: 50px;
+  max-width: 75px;
   position: relative;
 }
 
@@ -399,4 +420,11 @@ button {
 #rightDump li {
   visibility: hidden;
   top: 30px;
+}
+
+#sortJoke,
+#sortJokeImg {
+  position: relative;
+  top: 30px;
+  visibility: hidden;
 }

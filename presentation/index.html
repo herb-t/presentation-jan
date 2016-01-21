@@ -78,8 +78,8 @@
 	        <!-- slide -->
 	        <section>
 	          <h2>Javascript Sorting Algorithms</h2>
-	          <p>Sorting algorithms are used widely to organize sets of information that have been stored in data structures.  There are many different sorting algorithms, each differ in their methods to sort the data as well as their efficiency and performance.  The type of data in your data structures will dictate the sorting algorithm you should use.  In some cases, writing your own is the best approach.</p>
-	          <p>Lets not forget that the native method <strong style="color: #FF0050;">Array.prototype.sort()</strong> will provide the fastest possible implementation. Let's take a look at some of the more popular and widely used sorting algorithms to see the difference in methodology and performance.  Bubble Sort, Merge Sort and the native sort() method.</p>
+	          <p style="text-align: left;">Sorting algorithms are used widely to organize sets of information that have been stored in data structures.  There are many different sorting algorithms, each differ in their methods to sort the data as well as their efficiency and performance.  The type of data in your data structures will dictate the sorting algorithm you should use.  In some cases, writing your own is the best approach.</p>
+	          <p style="text-align: left;">Lets not forget that the native method <strong style="color: #FF0050;">Array.prototype.sort()</strong> will provide a fast implementation. Let's take a look at some of the more popular and widely used sorting algorithms to see the difference in methodology and performance.  Bubble Sort, Merge Sort and the native sort() method.</p>
 	        </section>
 
 	        <section>
@@ -93,11 +93,6 @@
 					 <h2>Bubble Sort</h2>
 					 <p class="align-center">Let’s take a look how bubble sorting would look through this array and reposition the items.</p>
 					 <img src="images/eg-bubble.png" alt="Bubble Sort Example Image" style="border: none; padding: 0; max-width: 325px;">
-					 <!-- <img src="images/gif-bubble.gif" alt="Bubble Sort Gif" class="gif-eg"> -->
-					 <!-- <img src="images/nums-unordered.png" alt="unordered numbers list" class="num-list-img"> -->
-					 <!-- <br>
-					 <br>
-					 <span>Let's see it in action: <a href="http://codepen.io/herbicus/pen/vLJpwz" target="_blank">http://codepen.io/herbicus/pen/vLJpwz</a></span> -->
 				</section>
 
 				<section>
@@ -135,13 +130,10 @@ function bubbleSort(arr){
 
 				<section class="bubble-sort-real-deal">
 					<h2>Bubble Sort</h2>
-
-					<ul id="egBubble">
-						<br>
-						<button id="sortReal">Sort</button>
-						<br>
-					</ul>
-					<ul id="bubbleDump"></ul>
+					<br>
+					<button id="sortReal">Sort</button>
+					<br>
+					<ul id="egBubble"></ul>
 
 				</section>
 			</section>
@@ -168,7 +160,6 @@ function bubbleSort(arr){
 			  	<h2>Merge Sort</h2>
 
 			  	<p class="align-center">Let’s take a look how merge sorting would look through this array and reposition the items.</p>
-	          	<!-- <img src="images/gif-merge.gif" alt="Merge Sort Gif" class="gif-eg"> -->
 	          	<img src="images/eg-merge.png" alt="merge example" style="border: none;">
 			  </section>
 
@@ -251,26 +242,21 @@ function merge(left, right) {
 			</section>
 
 			  <section>
-
-			  	<ul id="egMerge">
-			  		<h2>Merge Sort</h2>
-			  		<br>
-					<button id="mergeReal">Sort</button>
-					<br>
-				</ul>
+		  		<h2>Merge Sort</h2>
+		  		<br>
+				<button id="mergeReal">Sort</button>
 				<br>
-				<div id="indiviualArrays"></div>
-				<br>
-				<ul id="leftDump" style="float: left;"></ul>
-				<ul id="rightDump" style="float: right;"></ul>
-				<br>
-				<ul id="mergeDump" style="position: relative; top: 100px;"></ul>
+			  	<ul id="egMerge"></ul>
+			  	
 			  </section>
 
 			  <section>
 			  	  <h2>Merge Sort</h2>
-			  		<p>We’ll need two functions to accomplish this.  One function will transform a bigger array into smaller arrays until they have only one item in them.  As the algorithm is recursive, we need a stop condition or a helper function.  This function receives two arrays and merges them into a bigger array. At the end, we return a merged array as the result.</p>
-			  		<span class="align-center">Let's see whats going on behind the scenes: <a href="http://codepen.io/herbicus/pen/WrEmbj" target="_blank">http://codepen.io/herbicus/pen/WrEmbj</a></span>
+			  		<p>Ok so animating that method with GSAP is a little tricky.  Here's another visual representation of whats going on when sorting an array of numbers using merge sort.</p>
+			  		<br>
+			  		<img src="images/gif-merge.gif" alt="Merge Sort Gif" class="gif-eg">
+			  		<br>
+			  		<span class="align-center">Let's see whats going on under the hood: <a href="http://codepen.io/herbicus/pen/WrEmbj" target="_blank">http://codepen.io/herbicus/pen/WrEmbj</a></span>
 			  </section>
 
 	        </section>
@@ -280,19 +266,30 @@ function merge(left, right) {
 	        		<h2>Native Sort Method</h2>
 	        		<p>Let’s take a look how the native sort() method would look through this <strong style="color: #FF0050;">array</strong> and reposition the items.
 	        		<br>
-	        		<!-- <img src="images/gif-quick.gif" alt="Quick Sort Gif" class="gif-eg"> -->
 	        		<img src="images/eg-merge.png" alt="quick sort array example" style="border: none;">
 	        	</section>
 
 	        	<section>
+	        		<aside class="notes">
+	        			<small>
+	        				<ul>
+	        					<li>compare function paramater - arr.sort([compareFunction]) -</li>
+	        					<li>Optional. Specifies a function that defines the sort order. If omitted, the array is sorted according to each character's Unicode code point value, according to the string conversion of each element.</li>
+	        				</ul>
+	        			</small>
+	        		</aside>
+
 	        		<h2>Native Sort Method</h2>
 	        		<p>The default sort order is according to string Unicode code. Simply just call sort()</p>
 	        		<pre>
 	        			<code class="hljs" data-trim contenteditable>
-var myArray = ['ford', 'chevy', 'bmw'];
+var myArray = ['word', 'Word', '1 Word', '2 Words'];
 myArray.sort();
 
-// ['bmw', 'chevy', 'ford']
+// ['1 Word', '2 Words', 'Word', 'word']
+
+// In Unicode, numbers come before upper case letters,
+// which come before lower case letters.
 
 	        			</code>
 	        		</pre>
@@ -301,13 +298,32 @@ myArray.sort();
 	        	
 
 	        	  <section>
-	        	  	<ul id="egSort">
-	        	  		<h2>Native Sort Method</h2>
-	        	  		<br>
-	        			<button id="quickReal">Sort</button>
-	        			<br>
-	        		</ul>
+		  	  		<h2>Native Sort Method</h2>
+		  	  		<br>
+		  			<button id="quickReal">Sort</button>
+		  			<br>
+	        	  	<ul id="egSort"></ul>
 	        		<ul id="sortDump"></ul>
+	        		<br>
+	        		<br>
+	        		<small id="sortJoke">I love it when Javascript does things for you!</small>
+	        		<br>
+	        		<img src="images/baboon.gif" alt="monkey on a computer" id="sortJokeImg">
+	        	  </section>
+
+	        	  <section>
+	        	  	<aside class="notes">
+	        	  		<small>
+	        	  			<ul>
+	        	  				<li>if the array length is 22 or less, insertion sort is used instead.</li>
+	        	  				<li>comparison between values is made using a comparefn at all times. Either the built-in one or one that you pass through.</li>
+	        	  				<li>there’s no “return” because the function works directly on the dot-delimited array.</li>
+	        	  			</ul>
+	        	  		</small>
+	        	  	</aside>
+
+		  	  		<h2>Native Sort Method</h2>
+		  	  		<p>All playing aside, the <a href="http://www.w3schools.com/jsref/jsref_sort.asp">sort()</a> method is great but its not the solve all. By default, the sort() method sorts the elements alphabetically and ascending. However, numbers will not be sorted correctly (40 comes before 5). To sort numbers, you must add a function that compare numbers.</p>
 	        	  </section>
 
 	        </section>
@@ -336,6 +352,16 @@ myArray.sort();
 	          	<a href="https://www.youtube.com/watch?v=kPRA0W1kECg" target="_blank">Check it out on YouTube!</a>
 
 	          </section>
+	          
+	          <section>
+
+	          	<h2>Let's' Talk Performance</h2>
+	          	<p>Fun is good. Check out some other creative ways to visualize different sorting algorithms!</p>
+	          	<a href="https://www.youtube.com/watch?v=lyZQPjUT5B4" target="_blank">Bubble sort with Hungarian folk dance</a>
+	          	<br>
+	          	<a href="https://www.youtube.com/watch?v=HzUrYDdXY-8" target="_blank">Merge sort with Transylvanian folk dance</a>
+	          </section>
+
 	        </section>
 
 	        <section class="intro-slide">
@@ -352,6 +378,7 @@ myArray.sort();
     <script src="lib/js/TweenMax.js"></script>
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.js"></script>
+
     <script src="lib/js/utilities.js"></script>
     <script src="lib/js/bubble.js"></script>
     <script src="lib/js/merge.js"></script>

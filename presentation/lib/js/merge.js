@@ -2,6 +2,7 @@
 * This is the MergeDemo constructor complete with animation
 * @method insert
 * @method mergeSort
+* @method merge
 * @param {arr} - the array you want to mergeSort
 * @param {tl} - timeline
 * @constructor
@@ -14,69 +15,73 @@ var MergeDemo = function() {
 	};
 
 	// merge sort
-	this.mergeSort = function(arr) {
+	this.mergeSort = function(arr, tl) {
 		var len = arr.length;
 		if(len < 2)
 			return arr;
-			for (i=0;i<arr.length;i++) {
-			    $("#indiviualArrays").append("<ul><li class='indiviaual-list-index-" + arr[0] +"'><img src='images/" + arr[0] + ".png'/></li></ul>");
-			    TweenMax.staggerTo("#indiviualArrays ul li", 0.5, {autoAlpha: 1, top: 0, ease: Back.easeOut}, 0.05);
-			}
 
-		// arr.forEach(function() {
-		// 	$("#indiviualArrays").append("<ul><li><img src='images/" + arr[0] + ".png'/></li></ul>")
-		// 	TweenMax.staggerTo("#indiviualArrays ul li", 0.5, {autoAlpha: 1, top: 0, ease: Back.easeOut}, 0.05);
-		// });
 
-		var mid = Math.floor(len/2), 
-		left = arr.slice(0,mid), 
-		right = arr.slice(mid);		
+		var mid = Math.floor(len/2); 
+		var left = arr.slice(0,mid); 
+		var right = arr.slice(mid);
 
-		// left.forEach(function() {
+		// identify leftmost item, hightlight green and bump it down
+		for (var i = 0; i < left.length; i++) {
+			tl.to($('.merge-list-index-' + left[i]).find('img'), 0.5, {borderColor: 'green'});
+			tl.to($('.merge-list-index-' + left[i]).find('img'), 0.5, {y: '+=100', ease: Power2.easeOut});
+		};
 
-		// 	$("#leftDump").append("<li ><img src='images/" + left + ".png'/></li>");
-		// })
+		// identify rightmost item, hightlight green and bump it down
+		for (var i = 0; i < right.length; i++) {
+			tl.to($('.merge-list-index-' + right[i]).find('img'), 0.5, {borderColor: 'blue'});
+			tl.to($('.merge-list-index-' + right[i]).find('img'), 0.5, {y: '+=100', ease: Power2.easeOut});
+		};
 
-		// right.forEach(function() {
-		// 	$("#rightDump").append("<li><img src='images/" + right + ".png'/></li>");
-		// })
-
-		return this.merge(this.mergeSort(left),this.mergeSort(right));
-
+		return this.merge(this.mergeSort(left, tl),this.mergeSort(right, tl), tl);		
+		
 	};
 
-	this.merge = function(left, right) {
+	this.merge = function(left, right, tl) {
 
-		var result = [],
-		lLen = left.length,
-		rLen = right.length,
-		l = 0,
-		r = 0;
-
-		console.log(left);
-		console.log(right);
+		var result = [];
+		var lLen = left.length;
+		var rLen = right.length;
+		var l = 0;
+		var r = 0;
+		var width = $('.merge-list-index-' + right[r]).width();
 
 		while(l < lLen && r < rLen) {
 
-			if(left[l] < right[r]) {   
-				result.push(left[l++]);
+			if(left[l] < right[r]) {
 
-				for (i=0;i<left.length;i++) {
-				    $("#leftDump").append("<li class='left-list-index-" + left[i] +"'><img src='images/" + left[i] + ".png'/></li>");
-				    TweenMax.staggerTo("#leftDump li", 0.5, {delay: 1, autoAlpha: 1, top: 0, ease: Back.easeOut}, 0.05);
-				}
-			}
-			else {     
-				result.push(right[r++]);
+				tl.to($('.merge-list-index-' + left[l]).find('img'), 0.5, {borderColor: 'black'});
 
-				for (i=0;i<right.length;i++) {
-				    $("#rightDump").append("<li class='right-list-index-" + right[i] +"'><img src='images/" + right[i] + ".png'/></li>");
-					TweenMax.staggerTo("#rightDump li", 0.5, {delay: 1.5, autoAlpha: 1, top: 0, ease: Back.easeOut}, 0.05);
-				}
+				result.push(left[l++]); // if left item is less than right item, do nothing
+				
 			}
+			else {
+
+				// otherwise, switch the position
+				tl.to($('.merge-list-index-' + left[l]).find('img'), 0.5, {x: '+=' + width, ease: Power4.easeInOut});
+				tl.to($('.merge-list-index-' + right[r]).find('img'), 0.5, {x: '-=' + width, ease: Power4.easeInOut});
+
+				result.push(right[r++]);				
+
+			}
+
+			tl.to($('.merge-list-index-' + right[r]).find('img'), 0.5, {borderColor: 'black'});
 		}
 
-		return result.concat(left.slice(l)).concat(right.slice(r));
+		result = result.concat(left.slice(l)).concat(right.slice(r));
+
+		// when in the right position, bump up in place
+		for (var i = 0; i < result.length; i++) {
+
+			tl.to($('.merge-list-index-' + result[i]).find('img'), 0.5, {y: '-=100', ease: Back.easeOut});
+		};
+
+		return result; // return new array
+
 	};
 
 };
@@ -86,19 +91,14 @@ var MergeDemo = function() {
 // merge sort animation
 var mergeArray = new MergeDemo();
 mergeArray.insert(egMergeArr);
-console.log(egMergeArr);
+console.log('unsorted ', egMergeArr);
 
 $('#mergeReal').on('click', function() {
-	$("#egMerge li").css('display', 'none');
 	var tl = new TimelineMax(),
 	mergedArray = [];
 
-	mergedArray = mergeArray.mergeSort(egMergeArr);
+	mergedArray = mergeArray.mergeSort(egMergeArr, tl);
 
-	console.log('mergeArr', mergedArray);
-	for (i=0;i<mergedArray.length;i++) {
-	    $("#mergeDump").append("<li class='merge-list-index-" + mergedArray[i] +"'><img src='images/" + mergedArray[i] + ".png'/></li>");
-		TweenMax.staggerTo("#mergeDump li", 0.5, {delay: 2, autoAlpha: 1, top: 0, ease: Back.easeOut}, 0.05);
-	}
+	console.log('sorted', mergedArray);
 
 });

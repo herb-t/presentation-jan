@@ -1,7 +1,7 @@
 // demo arrays
 var egBubbleArr = [0,1,2,3,4];
-var egMergeArr = [0,1,2,3];
-var egQuickArr = [0,1,2,3,4,5,6,7];
+var egMergeArr = [2,0,3,1];
+var egNativeArr = [0,1,2,3,4,5,6,7];
 
 // shuffle array function
 function shuffle(array) {
@@ -22,5 +22,5 @@ function shuffle(array) {
 
 // shuffle on load/refresh
 shuffle(egBubbleArr);
-shuffle(egMergeArr);
-shuffle(egQuickArr);
+// shuffle(egMergeArr);
+shuffle(egNativeArr);
